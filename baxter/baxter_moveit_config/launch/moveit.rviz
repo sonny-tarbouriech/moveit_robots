@@ -237,7 +237,7 @@ Visualization Manager:
         Goal State Color: 250; 128; 0
         Interactive Marker Size: 0.3
         Joint Violation Color: 255; 0; 255
-        Planning Group: both_arms
+        Planning Group: right_arm
         Query Goal State: true
         Query Start State: false
         Show Workspace: false
@@ -435,6 +435,25 @@ Visualization Manager:
       Update Interval: 0
       Value: true
       Visual Enabled: true
+
+    - Class: rviz/MarkerArray
+      Enabled: true
+      Marker Topic: /danger_eval_marker
+      Name: danger_eval
+      Namespaces:
+        {}
+      Queue Size: 100
+      Value: true
+
+    - Class: rviz/MarkerArray
+      Enabled: true
+      Marker Topic: /move_group/display_contacts
+      Name: MoveIt Contacts
+      Namespaces:
+        {}
+      Queue Size: 100
+      Value: true
+
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
