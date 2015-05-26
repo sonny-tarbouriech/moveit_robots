@@ -742,7 +742,6 @@ bool IKFastKinematicsPlugin::searchPositionIK(const geometry_msgs::Pose &ik_pose
     return false;
   }
 
-
   // -------------------------------------------------------------------------------------------------
   // Initialize
 
@@ -783,11 +782,11 @@ bool IKFastKinematicsPlugin::searchPositionIK(const geometry_msgs::Pose &ik_pose
 
   ROS_DEBUG_STREAM_NAMED("ikfast","Free param is " << free_params_[0] << " initial guess is " << initial_guess << ", # positive increments: " << num_positive_increments << ", # negative increments: " << num_negative_increments);
 
+
   while(true)
   {
     IkSolutionList<IkReal> solutions;
     int numsol = solve(frame,vfree, solutions);
-
     ROS_DEBUG_STREAM_NAMED("ikfast","Found " << numsol << " solutions from IKFast");
 
     //ROS_INFO("%f",vfree[0]);

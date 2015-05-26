@@ -29,6 +29,10 @@ planner_configs:
     type: geometric::CForest
   SafeCForestkConfigDefault:
     type: geometric::SafeCForest
+  SafeBiTRRTkConfigDefault:
+    type: geometric::SafeBiTRRT
+  SafeBiRRTStarkConfigDefault:
+    type: geometric::SafeBiRRTstar
 left_arm:
   planner_configs:
     - SBLkConfigDefault
@@ -45,6 +49,8 @@ left_arm:
     - SafePRMkConfigDefault
     - CForestkConfigDefault
     - SafeCForestkConfigDefault
+    - SafeBiTRRTkConfigDefault
+    - SafeBiRRTStarkConfigDefault
   projection_evaluator: joints(left_s0,left_s1)
   longest_valid_segment_fraction: 0.05
 right_arm:
@@ -63,6 +69,8 @@ right_arm:
     - SafePRMkConfigDefault
     - CForestkConfigDefault
     - SafeCForestkConfigDefault
+    - SafeBiTRRTkConfigDefault
+    - SafeBiRRTStarkConfigDefault
   projection_evaluator: joints(right_s0,right_s1)
   longest_valid_segment_fraction: 0.05
 both_arms:
@@ -81,6 +89,8 @@ both_arms:
     - SafePRMkConfigDefault
     - CForestkConfigDefault
     - SafeCForestkConfigDefault
+    - SafeBiTRRTkConfigDefault
+    - SafeBiRRTStarkConfigDefault
   projection_evaluator: joints(right_s0,right_s1)
   longest_valid_segment_fraction: 0.05
 left_hand:
@@ -99,6 +109,8 @@ left_hand:
     - SafePRMkConfigDefault
     - CForestkConfigDefault
     - SafeCForestkConfigDefault
+    - SafeBiTRRTkConfigDefault
+    - SafeBiRRTStarkConfigDefault
 right_hand:
   planner_configs:
     - SBLkConfigDefault
@@ -115,3 +127,5 @@ right_hand:
     - SafePRMkConfigDefault
     - CForestkConfigDefault
     - SafeCForestkConfigDefault
+    - SafeBiTRRTkConfigDefault
+    - SafeBiRRTStarkConfigDefault
