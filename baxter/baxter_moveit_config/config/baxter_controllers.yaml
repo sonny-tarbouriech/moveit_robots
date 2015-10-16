@@ -10,7 +10,7 @@ controller_list:
       - right_e1
       - right_w0
       - right_w1
-      - right_w2
+      - right_w2 
   - name: /robot/limb/left
     action_ns: follow_joint_trajectory
     type: FollowJointTrajectory
