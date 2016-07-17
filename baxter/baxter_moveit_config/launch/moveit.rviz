@@ -28,7 +28,7 @@ Visualization Manager:
       Cell Size: 1
       Class: rviz/Grid
       Color: 160; 160; 164
-      Enabled: true
+      Enabled: false
       Line Style:
         Line Width: 0.03
         Value: Lines
@@ -456,7 +456,7 @@ Visualization Manager:
 
   Enabled: true
   Global Options:
-    Background Color: 48; 48; 48
+    Background Color: 85; 85; 85
     Fixed Frame: /base
   Name: root
   Tools:

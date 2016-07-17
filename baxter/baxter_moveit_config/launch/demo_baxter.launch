@@ -4,12 +4,14 @@
   <arg name="rviz_config" default="$(find baxter_moveit_config)/launch/moveit.rviz" />
   <!-- STa -->
   <arg name="debug" default="false" />
+  <arg name="publish_monitored_motion_planning_markers" default="false"/> 
+  <arg name="publish_monitored_trajectory_data_file" default="false"/>
    
   <!-- By default we do not overwrite the URDF. Change the following to true to change the default behavior -->
   <arg name="load_robot_description" default="false"/>
   <!-- Left and right electric gripper params. Set to true to check for collisions for their links -->
-  <arg name="right_electric_gripper" default="false"/>
-  <arg name="left_electric_gripper" default="false"/>
+  <arg name="right_electric_gripper" default="true"/>
+  <arg name="left_electric_gripper" default="true"/>
   <!-- Set the kinematic tips for the left_arm and right_arm move_groups -->
   <arg name="left_tip_name" default="left_gripper"/>
   <arg name="right_tip_name" default="right_gripper"/>
@@ -23,7 +25,8 @@
 
   <arg name="kinect" default="false" />
   <arg name="xtion" default="false" />
-  <arg name="camera_link_pose" default="0.15 0.075 0.5 0.0 0.7854 0.0"/>
+  <!-- STa: Default link pose modified -->
+  <arg name="camera_link_pose" default="0.187 0.014 0.118 -0.041 0.307 0.020 0.951"/>
   <include file="$(find baxter_moveit_config)/launch/move_group.launch">
     <arg name="kinect" value="$(arg kinect)" />
     <arg name="xtion" value="$(arg xtion)" />
@@ -31,6 +34,8 @@
     <arg name="allow_trajectory_execution" value="true"/>
     <!-- STa -->
     <arg name="debug" value="$(arg debug)" />
+    <arg name="publish_monitored_motion_planning_markers" value="$(arg publish_monitored_motion_planning_markers)" />
+    <arg name="publish_monitored_trajectory_data_file" value="$(arg publish_monitored_trajectory_data_file)" />
   </include>
 
   <include file="$(find baxter_moveit_config)/launch/moveit_rviz.launch">

@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <launch>
      <arg name="camera_link_pose" default="0.15 0.075 0.5 0.0 0.7854 0.0"/>
      <arg name="kinect" default="false"/>
@@ -29,13 +30,20 @@
          </include>
          <!-- Users update this to set transform between camera and robot -->
          <!-- This example has the Xtion mounted to the chest of the robot -->
+         <!-- STa: camera linked to the head -->
          <node pkg="tf" type="static_transform_publisher" name="camera_link_broadcaster"
-               args="$(arg camera_link_pose) /torso /camera_link 100" />
+               args="$(arg camera_link_pose) /head /camera_link 100" />
+	
+	<!-- STa: run openni tracker -->
+        <node name="openni_tracker" pkg="openni_tracker" type="openni_tracker" output="screen">
+          <param name="camera_frame_id" value="camera_link" />
+        </node>
+
 
          <!-- octomap parameters for moveit -->
          <group ns="move_group" >
              <param name="octomap_frame" type="string" value="camera_link" />
-             <param name="octomap_resolution" type="double" value="0.02" />
+             <param name="octomap_resolution" type="double" value="0.05" />
              <rosparam command="load" file="$(find baxter_moveit_config)/config/xtion_sensor.yaml" />
          </group>
      </group>

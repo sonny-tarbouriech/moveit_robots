@@ -13,6 +13,9 @@
   <arg name="max_safe_path_cost" default="1"/>
   <arg name="jiggle_fraction" default="0.05" />
   <arg name="publish_monitored_planning_scene" default="true"/>
+    <!-- STa : Arg to display motion planning markers in the scene -->
+  <arg name="publish_monitored_motion_planning_markers" default="false"/>
+  <arg name="publish_monitored_trajectory_data_file" default="false"/>
 
   <include ns="move_group" file="$(find baxter_moveit_config)/launch/planning_pipeline.launch">
     <arg name="pipeline" value="ompl" />
@@ -58,10 +61,13 @@
     <param name="planning_scene_monitor/publish_geometry_updates" value="$(arg publish_monitored_planning_scene)" />
     <param name="planning_scene_monitor/publish_state_updates" value="$(arg publish_monitored_planning_scene)" />
     <param name="planning_scene_monitor/publish_transforms_updates" value="$(arg publish_monitored_planning_scene)" />
+    <!-- STa :  Display motion planning markers in the scene -->
+    <param name="planning_scene_monitor/publish_motion_planning_markers" value="$(arg publish_monitored_motion_planning_markers)" />
+    <param name="planning_scene_monitor/publish_trajectory_data_file" value="$(arg publish_monitored_trajectory_data_file)" />
   </node>
 
-  <!-- STa -->
-  <node pkg="tf" type="static_transform_publisher" name="camera_link_broadcaster" args="0.144 -0.027 0.095 -0.005 0.273 0.015 0.962 /head /camera_link 100" />
-
+  <!-- STa 
+  <node pkg="tf" type="static_transform_publisher" name="camera_link_broadcaster" args="0.146 0.039 0.120 -0.023 0.219 0.015 0.975 /head /camera_link 100" />
+-->
   
 </launch>
